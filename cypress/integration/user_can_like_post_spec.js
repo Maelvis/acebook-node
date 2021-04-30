@@ -16,8 +16,8 @@ describe('Timeline', function () {
       cy.get('#new-post-form').find('[type="text"]').type('Like this post!');
       cy.get('#new-post-form').submit();
       
-      cy.contains('Like').click();
-  
+      cy.get('#like-post-form').submit();
+      
       cy.get('.likes').contains(1);
     });
 });
