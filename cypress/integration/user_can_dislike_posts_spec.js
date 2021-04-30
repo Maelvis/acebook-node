@@ -1,5 +1,5 @@
 describe('Timeline', function () {
-    before(async (done) => {
+    beforeEach(async (done) => {
         await cy.task("db:drop:all");
         done();
       })
@@ -16,9 +16,9 @@ describe('Timeline', function () {
       cy.get('#new-post-form').find('[type="text"]').type('Dislike this post!');
       cy.get('#new-post-form').submit();
       
-      cy.contains('Dislike').click();
+      cy.get('#dislike-post-form').submit();
       
-      console.log(cy.get('#likes'))
-      cy.get('#likes').should('eq', 1);
+      
+      cy.get('.likes').contains(-1);
     });
 });
